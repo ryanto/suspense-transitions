@@ -3,7 +3,7 @@ import { useTimeout } from "../lib/use-timeout";
 import { useState } from "react";
 
 export const LoadingPopup = ({ children, delayMs }) => {
-  let [isShowing, setIsShowing] = useState(delayMs === 0);
+  let [isShowing, setIsShowing] = useState(!delayMs);
   useTimeout(() => setIsShowing(true), delayMs);
 
   return (
