@@ -3,6 +3,7 @@ import { Container } from "./components/container";
 import { Gallery } from "./components/gallery";
 import { Header } from "./components/header";
 import { Loading } from "./components/loading";
+import { LoadingPopup } from "./components/loading-popup";
 import { usePizza } from "./use-pizza";
 
 export function App() {
