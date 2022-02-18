@@ -17,7 +17,7 @@ let pizzas = [
     id: 3,
     name: "Detroit Style",
     photos: ["dt-2.jpeg", "dt-3.jpeg", "dt-1.jpeg"],
-    delay: 700,
+    delay: 7000,
   },
 ];
 

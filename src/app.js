@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useTransition } from "react";
 import { Container } from "./components/container";
 import { Gallery } from "./components/gallery";
 import { Header } from "./components/header";
@@ -30,12 +30,18 @@ function Pizza() {
 
   let pizza = usePizza(id);
 
+  let [isPending, startTransition] = useTransition();
+
   let showNextPizza = () => {
-    setId(id + 1);
+    startTransition(() => {
+      setId(id + 1);
+    });
   };
 
   let showPreviousPizza = () => {
-    setId(id - 1);
+    startTransition(() => {
+      setId(id - 1);
+    });
   };
 
   return (
@@ -55,6 +61,12 @@ function Pizza() {
           </button>
         </div>
       </div>
+
+      {isPending && (
+        <LoadingPopup delayMs={60}>
+          We're loading the next pizza, yum!
+        </LoadingPopup>
+      )}
 
       <h1 className="mt-6 text-2xl font-medium text-center">{pizza.name}</h1>
       <div className="mt-6">
